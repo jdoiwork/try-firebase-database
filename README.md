@@ -6,7 +6,7 @@ html5でなんかやるときのテンプレート
 ## Python
 
 ```bash
-$  python -m SimpleHTTPServer
+$ python -m SimpleHTTPServer
 ```
 
 ## Node
