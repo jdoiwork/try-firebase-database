@@ -6,6 +6,15 @@
   </head>
   <body>
     <h1>hello</h1>
+    <form id="form" v-on:submit.prevent="onSubmit">
+      <input v-model="name"/> name
+      <input v-model="email"/> email
+      <input type="submit" />
+    </form>
+    <section id="info">
+      <p>name {{info.username}}</p>
+      <p>email {{info.email}}</p>
+    </section>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
