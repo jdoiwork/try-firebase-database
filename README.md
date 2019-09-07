@@ -3,7 +3,13 @@ Firebase Database の練習
 
 # すぐ忘れる ワンライナー Web Server
 
-## Python
+## Python 3
+```bash
+$ python3 -m http.server
+```
+
+
+## Python 2
 
 ```bash
 $ python -m SimpleHTTPServer
