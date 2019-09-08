@@ -1,6 +1,10 @@
+import { initModel } from './myservice.js'
+
 console.log("hello javascript")
 // Get a reference to the database service
 var database = firebase.database();
+
+
 
 function writeUserData(userId, name, email, imageUrl) {
   firebase.database().ref('/users/' + userId).set({
@@ -23,6 +27,7 @@ var info = new Vue({
     var self = this
     database.ref('/users/618').on('value', function(snapshot){
       var val = snapshot.val()
+      console.debug("on value")
       console.debug(val)
       self.updateInfo(val)
     }, function(error){console.error(error)})
@@ -39,10 +44,7 @@ var info = new Vue({
 
 var form = new Vue({
   el: '#form',
-  data: {
-    name: "jdoi",
-    email: "jdoi.work@gmail.com",
-  },
+  data: initModel(),
   methods: {
     onSubmit: function(){
       // write data
