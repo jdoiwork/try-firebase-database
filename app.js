@@ -25,6 +25,19 @@ function userSignIn() {
   })
 }
 
+function userSignOut() {
+  firebase.auth().signOut().catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+    console.log("error", error)
+  })
+}
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -40,6 +53,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 var auth = new Vue({
   el: '#auth',
   data: {
+    user: null,
   },
 
   methods: {
@@ -49,7 +63,7 @@ var auth = new Vue({
     },
     signOut: function() {
       console.log("sign out")
-      //userSignOut()
+      userSignOut()
     }
   }
 })
