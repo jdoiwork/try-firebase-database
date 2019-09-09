@@ -26,6 +26,17 @@ function Auth() {
   })
 }
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log("user is signed in", user)
+  }
+  else {
+    console.log("user is signed out")
+
+  }
+})
+
 var auth = new Vue({
   el: '#auth',
   data: {
