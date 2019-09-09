@@ -1,6 +1,5 @@
 console.log("hello javascript")
 
-import * as dbView from './views/database-view.js'
 
 let provider = new firebase.auth.GoogleAuthProvider()
 console.log(provider)
@@ -26,6 +25,7 @@ function userSignIn() {
   })
 }
 
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -46,6 +46,10 @@ var auth = new Vue({
     signIn: function() {
       console.log("sign in")
       userSignIn()
+    },
+    signOut: function() {
+      console.log("sign out")
+      //userSignOut()
     }
   }
 })
