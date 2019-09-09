@@ -12,7 +12,7 @@ var info = new Vue({
   created: function(){
     // read data
     var self = this
-    myservice.get((val) => self.updateInfo(val))
+    myservice.subscribe((val) => self.updateInfo(val))
 
   },
 

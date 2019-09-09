@@ -31,6 +31,6 @@ function readUserData(callback){
 export
     { initModel     as init
     , writeUserData as post
-    , readUserData  as get
+    , readUserData  as subscribe
     }
 
