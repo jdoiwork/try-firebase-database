@@ -5,7 +5,7 @@ import * as dbView from './views/database-view.js'
 let provider = new firebase.auth.GoogleAuthProvider()
 console.log(provider)
 
-function Auth() {
+function userSignIn() {
   firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
@@ -45,7 +45,7 @@ var auth = new Vue({
   methods: {
     signIn: function() {
       console.log("sign in")
-      Auth()
+      userSignIn()
     }
   }
 })
