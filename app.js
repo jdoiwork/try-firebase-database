@@ -2,6 +2,9 @@ console.log("hello javascript")
 
 import * as myservice from './myservice.js'
 
+let provider = new firebase.auth.GoogleAuthProvider()
+console.log(provider)
+
 // -----------------------------------
 // info view
 var info = new Vue({
