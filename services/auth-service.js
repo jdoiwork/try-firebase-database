@@ -13,15 +13,20 @@ function logError(error) {
     console.error("error", error)
 }
 
-function userSignIn() {
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-    console.debug("OK", token, user)
-  }).catch(logError)
+async function userSignIn() {
+    try {
+        let result = await firebase.auth().signInWithPopup(provider)
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        let token = result.credential.accessToken;
+        // The signed-in user info.
+        let user = result.user;
+        // ...
+        console.debug("OK", token, user)
+
+    }
+    catch (error) {
+        logError(error)
+    }
 }
 
 function userSignOut() {
