@@ -9,7 +9,7 @@
     <h1>hello</h1>
     <section id="auth">
       <h2>auth</h2>
-      <button v-on:click="signIn" v-if="!user">sign in</button>
+      <button v-on:click="signIn" v-if="!isSignedIn">sign in</button>
       <button v-on:click="signOut" v-else>sign out</button>
     </section>
 

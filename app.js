@@ -59,6 +59,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 var auth = new Vue({
   el: '#auth',
   data: userInfo,
+  computed: {
+    isSignedIn () {
+      return !!this.user
+    }
+  },
 
   methods: {
     signIn: function() {
