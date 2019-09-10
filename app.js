@@ -6,11 +6,18 @@ import * as databaseService from './services/database-service.js'
 import * as authView    from "./views/auth-view.js";
 import * as authService from './services/auth-service.js'
 
+Vue.use(Vuex)
+
 databaseView.createElements({ info: "#info", form: "#form" }, databaseService)
 
 const store = new Vuex.Store({
   state: {
     user: null,
+  },
+  getters: {
+    isSignedIn: state => {
+      return !!state.user
+    }
   },
   mutations: {
     updateUser: (state, user) => {
