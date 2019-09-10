@@ -1,4 +1,4 @@
-import * as myservice from '../myservice.js'
+import * as myservice from '../services/myservice.js/index.js'
 
 // -----------------------------------
 // info view
