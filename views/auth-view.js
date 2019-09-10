@@ -1,11 +1,14 @@
 
-function createAuth(el, service, data) {
+function createAuth(el, service, store) {
     return new Vue({
         el: el,
-        data: data,
+        data: {},
         computed: {
           isSignedIn () {
             return !!this.user
+          },
+          user () {
+            return store.state.user
           }
         },
       
@@ -23,9 +26,9 @@ function createAuth(el, service, data) {
 
 }
 
-function createElements({ auth }, service, data) {
+function createElements({ auth }, service, store) {
     return { 
-        auth: createAuth(auth, service, data),
+        auth: createAuth(auth, service, store),
     }
 }
 
