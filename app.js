@@ -5,23 +5,13 @@ import * as databaseService from './services/database-service.js'
 
 import * as authService from './services/auth-service.js'
 
-databaseView.createElements({ info: "#info", form: "#form"}, databaseService)
+databaseView.createElements({ info: "#info", form: "#form" }, databaseService)
 
 let userInfo = {
   user: null,
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    console.log("user is signed in", user)
-  }
-  else {
-    console.log("user is signed out")
-  }
-  userInfo.user = user
-
-})
+authService.subscribe(user => userInfo.user = user)
 
 var auth = new Vue({
   el: '#auth',

@@ -28,7 +28,23 @@ function userSignOut() {
     firebase.auth().signOut().catch(logError)
 }
 
+function subscribe(callback) {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+          console.log("user is signed in", user)
+        }
+        else {
+          console.log("user is signed out")
+        }
+        
+        callback(user)
+    })
+}
+
+
 export
     { userSignIn  as signIn
     , userSignOut as signOut
+    , subscribe
     }
