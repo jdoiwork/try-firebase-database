@@ -1,40 +1,46 @@
-import * as myservice from '../services/myservice.js/index.js'
 
-// -----------------------------------
-// info view
-var info = new Vue({
-    el: '#info',
-    data: {
-      info: {},
-    },
-    created: function(){
-      // read data
-      var self = this
-      myservice.subscribe((val) => self.updateInfo(val))
-  
-    },
-  
-    methods: {
-      updateInfo: function(val){
-        this.info = val;
-        console.debug("updateInfo", val, this)
-      }
-    }
-  })
-  
-  
-  // ----------------------------------------
-  // form view
-  var form = new Vue({
+function createInfo(el, service) {
+    return new Vue({
+        el: el,
+        data: {
+        info: {},
+        },
+        created: function(){
+        // read data
+        var self = this
+        service.subscribe((val) => self.updateInfo(val))
+    
+        },
+    
+        methods: {
+            updateInfo: function(val){
+                this.info = val;
+                console.debug("updateInfo", val, this)
+            }
+        }
+    })
+} 
+
+function createForm(el, service) {
+  return new Vue({
     el: '#form',
-    data: myservice.init(),
+    data: service.init(),
     methods: {
       onSubmit: function(){
         // write data
-        myservice.post("618", this.name, this.email, "https://jdoi.pw");
+        service.post("618", this.name, this.email, "https://jdoi.pw");
         console.debug("submit")
       }
     }
   })
-  
-export {info, form}
+}
+
+function createElements({ info, form }, service) {
+    return {
+        info: createInfo(info, service),
+        form: createForm(form, service),
+    }
+}
+
+export { createElements }
+

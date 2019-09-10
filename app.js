@@ -1,6 +1,9 @@
 console.log("hello javascript")
 
 import * as databaseView from "./views/database-view.js";
+import * as databaseService from './services/database-service.js'
+
+databaseView.createElements({ info: "#info", form: "#form"}, databaseService)
 
 let provider = new firebase.auth.GoogleAuthProvider()
 console.log(provider)
