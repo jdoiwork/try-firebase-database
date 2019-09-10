@@ -40,6 +40,10 @@ function userSignOut() {
   })
 }
 
+let userInfo = {
+  user: null,
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -47,15 +51,14 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
   else {
     console.log("user is signed out")
-
   }
+  userInfo.user = user
+
 })
 
 var auth = new Vue({
   el: '#auth',
-  data: {
-    user: null,
-  },
+  data: userInfo,
 
   methods: {
     signIn: function() {
