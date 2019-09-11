@@ -6,37 +6,15 @@ import * as databaseService from './services/database-service.js'
 import * as authView    from "./views/auth-view.js";
 import * as authService from './services/auth-service.js'
 
+import { createStore } from './stores/app_store.js'
+
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
-  state: {
-    user: null,
-  },
-  getters: {
-    isSignedIn: state => {
-      return !!state.user
-    },
-    user: state => {
-      return state.user
-    }
-  },
-  mutations: {
-    updateUser: (state, user) => {
-      console.debug("mut updateUser", user)
-      state.user = user
-    }
-  },
-  actions: {
-    updateUser: (context, user) => {
-      console.debug("act updateUser", user)
-      context.commit('updateUser', user)
-    }
-  }
-})
-
+const store = createStore()
 
 
 authService.subscribe(user => store.dispatch('updateUser', user))
 authView.createElements({ auth: "#auth"}, authService, store)
+
 
 databaseView.createElements({ info: "#info", form: "#form" }, databaseService)
