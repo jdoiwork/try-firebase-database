@@ -9,8 +9,18 @@
     <h1>hello</h1>
     <section id="auth">
       <h2>auth</h2>
-      <button v-on:click="signIn" v-if="!isSignedIn">sign in</button>
-      <button v-on:click="signOut" v-else>sign out</button>
+      <section v-if="!isSignedIn">
+        <button v-on:click="signIn">sign in</button>
+      </section>
+      <section v-else>
+        <button v-on:click="signOut">sign out</button>
+        <table>
+          <tr v-for="prop in props">
+            <th>{{ prop.key }}</th>
+            <td></td>
+          </tr>
+        </table>
+      </section>
     </section>
 
     <section>

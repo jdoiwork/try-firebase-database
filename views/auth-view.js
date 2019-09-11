@@ -2,7 +2,14 @@
 function createAuth(el, service, store) {
     return new Vue({
         el: el,
-        data: {},
+        data: {
+          props: [
+            { key: 'displayName'},
+            { key: 'email' },
+            { key: 'providerId' },
+            { key: 'uid' },
+          ]
+        },
         store,
         computed: Vuex.mapGetters(['isSignedIn']),
       
