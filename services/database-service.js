@@ -8,6 +8,11 @@ function initModel() {
     }
 }
 
+const emptyModel = {
+    username: '',
+    email: '',
+}
+
 function writeUserData(userId, name, email, imageUrl) {
     database
         .ref('/users/' + userId)
@@ -18,19 +23,22 @@ function writeUserData(userId, name, email, imageUrl) {
 }
 
 function readUserData(callback, userId){
-    database
-        .ref(`/users/${userId}`)
-        .on('value', (snapshot) => {
-            console.log("on value")
-            callback(snapshot.val())
+    let ref = database.ref(`/users/${userId}`)
+    ref.on('value', (snapshot) => {
+            console.debug(`on value, userId: ${userId}`)
+            callback({...emptyModel, ...snapshot.val()})
         })
-
+    return ref
 }
 
+function unsubscribe(ref) {
+    ref.off()
+}
 
 export
     { initModel     as init
     , writeUserData as post
     , readUserData  as subscribe
+    , unsubscribe
     }
 

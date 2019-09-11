@@ -10,12 +10,10 @@ import { createStore } from './stores/app_store.js'
 
 Vue.use(Vuex)
 
-const store = createStore()
+const store = createStore({ database: databaseService })
 
 
 authService.subscribe(user => store.dispatch('updateUser', user))
+
 authView.createElements({ auth: "#auth"}, authService, store)
-
-databaseService.subscribe((info) => store.commit('updateInfo', info), '618')
-
 databaseView.createElements({ info: "#info", form: "#form" }, databaseService, store)
