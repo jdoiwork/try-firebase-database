@@ -17,9 +17,9 @@ function writeUserData(userId, name, email, imageUrl) {
             profile_picture: imageUrl,})
 }
 
-function readUserData(callback){
+function readUserData(callback, userId){
     database
-        .ref('/users/618')
+        .ref(`/users/${userId}`)
         .on('value', (snapshot) => {
             console.log("on value")
             callback(snapshot.val())

@@ -1,14 +1,14 @@
 
-function createInfo(el, service) {
+function createInfo(el, service, store) {
     return new Vue({
         el: el,
         data: {
-        info: {},
+          info: {},
         },
         created: function(){
-        // read data
-        var self = this
-        service.subscribe((val) => self.updateInfo(val))
+          // read data
+          var self = this
+          service.subscribe((val) => self.updateInfo(val), '618')
     
         },
     
@@ -21,9 +21,9 @@ function createInfo(el, service) {
     })
 } 
 
-function createForm(el, service) {
+function createForm(el, service, store) {
   return new Vue({
-    el: '#form',
+    el: el,
     data: service.init(),
     methods: {
       onSubmit: function(){
@@ -35,10 +35,10 @@ function createForm(el, service) {
   })
 }
 
-function createElements({ info, form }, service) {
+function createElements({ info, form }, service, store) {
     return {
-        info: createInfo(info, service),
-        form: createForm(form, service),
+        info: createInfo(info, service, store),
+        form: createForm(form, service, store),
     }
 }
 
