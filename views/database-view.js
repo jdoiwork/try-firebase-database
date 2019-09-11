@@ -3,8 +3,10 @@ function createInfo(el, service, store) {
     return new Vue({
         el: el,
         data: {
-          info: {},
+
         },
+        store,
+        computed: Vuex.mapGetters(['info']),
         created: function(){
           // read data
           var self = this
@@ -14,7 +16,7 @@ function createInfo(el, service, store) {
     
         methods: {
             updateInfo: function(val){
-                this.info = val;
+                this.$store.commit('updateInfo', val)
                 console.debug("updateInfo", val, this)
             }
         }
