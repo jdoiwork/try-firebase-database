@@ -10,7 +10,10 @@ import { createStore } from './stores/app_store.js'
 
 Vue.use(Vuex)
 
-const store = createStore({ database: databaseService })
+const store = createStore({
+    database: databaseService,
+    auth: authService,
+})
 
 
 authService.subscribe(user => store.dispatch('updateUser', user))

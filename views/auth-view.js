@@ -13,21 +13,7 @@ function createAuth(el, service, store) {
         },
         store,
         computed: Vuex.mapGetters(['isSignedIn', 'user']),
-      
-        methods: {
-          signIn: function() {
-            console.log("sign in")
-            service.signIn()
-          },
-          signInAnon: function() {
-            console.log("sign in")
-            service.signInAnon()
-          },
-          signOut: function() {
-            console.log("sign out")
-            service.signOut()
-          }
-        }
+        methods: Vuex.mapActions(['signIn', 'signInAnon', 'signOut'])
     })
 
 }

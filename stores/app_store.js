@@ -1,4 +1,6 @@
 
+import auth_module from './auth_store.js'
+
 const emptyEditingInfo = {
     initialized: false,
     username: '',
@@ -7,6 +9,9 @@ const emptyEditingInfo = {
 
 function createStore(services) {
     return new Vuex.Store({
+        modules: {
+          auth: auth_module(services.auth)
+        },
         state: {
           user: null,
           info: {},
