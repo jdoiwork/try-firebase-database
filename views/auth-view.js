@@ -1,5 +1,5 @@
 
-function createAuth(el, service, store) {
+function createAuth(el, store) {
     return new Vue({
         el: el,
         data: {
@@ -18,9 +18,9 @@ function createAuth(el, service, store) {
 
 }
 
-function createElements({ auth }, service, store) {
+function createElements({ auth }, store) {
     return { 
-        auth: createAuth(auth, service, store),
+        auth: createAuth(auth, store),
     }
 }
 
