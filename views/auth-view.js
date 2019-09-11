@@ -11,7 +11,7 @@ function createAuth(el, service, store) {
           ]
         },
         store,
-        computed: Vuex.mapGetters(['isSignedIn']),
+        computed: Vuex.mapGetters(['isSignedIn', 'user']),
       
         methods: {
           signIn: function() {

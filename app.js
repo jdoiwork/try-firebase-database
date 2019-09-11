@@ -17,6 +17,9 @@ const store = new Vuex.Store({
   getters: {
     isSignedIn: state => {
       return !!state.user
+    },
+    user: state => {
+      return state.user
     }
   },
   mutations: {
