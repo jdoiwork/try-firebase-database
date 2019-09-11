@@ -1,13 +1,6 @@
 // Get a reference to the database service
 const database = firebase.database()
 
-function initModel() {
-    return {
-        name: "jdoi",
-        email: "jdoi.work@gmail.com",
-    }
-}
-
 const emptyModel = {
     username: '',
     email: '',
@@ -36,8 +29,7 @@ function unsubscribe(ref) {
 }
 
 export
-    { initModel     as init
-    , writeUserData as post
+    { writeUserData as post
     , readUserData  as subscribe
     , unsubscribe
     }
