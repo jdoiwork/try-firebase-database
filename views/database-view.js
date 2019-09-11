@@ -1,5 +1,5 @@
 
-function createInfo(el, service, store) {
+function createInfo(el, store) {
     return new Vue({
         el: el,
         data: {
@@ -11,7 +11,7 @@ function createInfo(el, service, store) {
     })
 } 
 
-function createForm(el, service, store) {
+function createForm(el, store) {
   return new Vue({
     el: el,
     data: {},
@@ -29,10 +29,10 @@ function createForm(el, service, store) {
   })
 }
 
-function createElements({ info, form }, service, store) {
+function createElements({ info, form }, store) {
     return {
-        info: createInfo(info, service, store),
-        form: createForm(form, service, store),
+        info: createInfo(info, store),
+        form: createForm(form, store),
     }
 }
 
