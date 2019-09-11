@@ -8,8 +8,6 @@ import * as authService from './services/auth-service.js'
 
 Vue.use(Vuex)
 
-databaseView.createElements({ info: "#info", form: "#form" }, databaseService)
-
 const store = new Vuex.Store({
   state: {
     user: null,
@@ -40,3 +38,5 @@ const store = new Vuex.Store({
 
 authService.subscribe(user => store.dispatch('updateUser', user))
 authView.createElements({ auth: "#auth"}, authService, store)
+
+databaseView.createElements({ info: "#info", form: "#form" }, databaseService)
