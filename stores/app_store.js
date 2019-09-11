@@ -66,7 +66,7 @@ function createStore(services) {
           },
           subscribeInfo: (context, user) => {
             const updateInfo = (info) => context.commit("updateInfo", info)
-            const ref = services.database.subscribe(updateInfo, user.uid)
+            const ref = services.database.subscribe(user.uid, updateInfo)
             console.debug('subscribe info')
             context.commit('updateInfoRef', ref)
           },

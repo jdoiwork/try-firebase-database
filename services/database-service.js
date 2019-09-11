@@ -22,7 +22,7 @@ function writeUserData(userId, name, email, imageUrl) {
             profile_picture: imageUrl,})
 }
 
-function readUserData(callback, userId){
+function readUserData(userId, callback){
     let ref = database.ref(`/users/${userId}`)
     ref.on('value', (snapshot) => {
             console.debug(`on value, userId: ${userId}`)
