@@ -1,9 +1,16 @@
 
+const emptyEditingInfo = {
+    initialized: false,
+    username: '',
+    email: '',
+}
+
 function createStore() {
     return new Vuex.Store({
         state: {
           user: null,
           info: {},
+          editingInfo: { ...emptyEditingInfo },
         },
         getters: {
           isSignedIn: state => {
@@ -14,7 +21,10 @@ function createStore() {
           },
           info: state => {
               return state.info
-          }
+          },
+          editingInfo: state => {
+              return state.editingInfo
+          },
         },
         mutations: {
           updateUser: (state, user) => {
@@ -23,10 +33,14 @@ function createStore() {
           },
           updateInfo: (state, info) => {
               console.log(info)
+              if(!state.editingInfo.initialized) {
+                  state.editingInfo = { ...info, initialized: true }
+              }
               state.info = info
           },
           clearInfo: (state) => {
               state.info = {}
+              state.editingInfo = { ...emptyEditingInfo }
           }
         },
         actions: {

@@ -14,11 +14,14 @@ function createInfo(el, service, store) {
 function createForm(el, service, store) {
   return new Vue({
     el: el,
-    data: service.init(),
+    data: {},
+    store,
+    computed: Vuex.mapGetters(['info', 'editingInfo']),
     methods: {
       onSubmit: function(){
         // write data
-        service.post("618", this.name, this.email, "https://jdoi.pw");
+        let info = this.editingInfo
+        service.post("618", info.username, info.email, "https://jdoi.pw");
         console.debug("submit")
       }
     }

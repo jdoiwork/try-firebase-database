@@ -28,8 +28,8 @@
     <section>
       <h2>user data</h2>
       <form id="form" v-on:submit.prevent="onSubmit">
-        <input v-model="name"/> name
-        <input v-model="email"/> email
+        <input v-model="editingInfo.username"/> name
+        <input v-model="editingInfo.email"/> email
         <input type="submit" />
       </form>
       <section id="info">
