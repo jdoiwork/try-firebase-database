@@ -16,5 +16,6 @@ const store = createStore()
 authService.subscribe(user => store.dispatch('updateUser', user))
 authView.createElements({ auth: "#auth"}, authService, store)
 
+databaseService.subscribe((info) => store.commit('updateInfo', info), '618')
 
 databaseView.createElements({ info: "#info", form: "#form" }, databaseService, store)

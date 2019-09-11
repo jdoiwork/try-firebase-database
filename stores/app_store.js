@@ -22,6 +22,7 @@ function createStore() {
             state.user = user
           },
           updateInfo: (state, info) => {
+              console.log(info)
               state.info = info
           },
           clearInfo: (state) => {

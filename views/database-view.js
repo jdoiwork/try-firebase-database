@@ -7,19 +7,7 @@ function createInfo(el, service, store) {
         },
         store,
         computed: Vuex.mapGetters(['info']),
-        created: function(){
-          // read data
-          var self = this
-          service.subscribe((val) => self.updateInfo(val), '618')
-    
-        },
-    
-        methods: {
-            updateInfo: function(val){
-                this.$store.commit('updateInfo', val)
-                console.debug("updateInfo", val, this)
-            }
-        }
+
     })
 } 
 
