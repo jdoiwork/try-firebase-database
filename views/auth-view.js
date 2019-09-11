@@ -8,6 +8,7 @@ function createAuth(el, service, store) {
             { key: 'email' },
             { key: 'providerId' },
             { key: 'uid' },
+            { key: 'isAnonymous' },
           ]
         },
         store,
@@ -17,6 +18,10 @@ function createAuth(el, service, store) {
           signIn: function() {
             console.log("sign in")
             service.signIn()
+          },
+          signInAnon: function() {
+            console.log("sign in")
+            service.signInAnon()
           },
           signOut: function() {
             console.log("sign out")

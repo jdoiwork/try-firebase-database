@@ -10,7 +10,9 @@
     <section id="auth">
       <h2>auth</h2>
       <section v-if="!isSignedIn">
-        <button v-on:click="signIn">sign in</button>
+        <h3>sign in</h3>
+        <button v-on:click="signIn">Google</button>
+        <button v-on:click="signInAnon">Anonymous</button>
       </section>
       <section v-else>
         <button v-on:click="signOut">sign out</button>
