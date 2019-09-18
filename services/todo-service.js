@@ -6,7 +6,7 @@ function getIndex(userId, callback) {
     const ref = database.ref('/todos/' + userId)
 
     ref.on('child_added', (snapshot) => {
-        callback('child_added', snapshot.val())
+        callback('child_added', snapshot.key, snapshot.val())
     })
 
     return ref

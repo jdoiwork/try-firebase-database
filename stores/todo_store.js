@@ -30,9 +30,9 @@ function create_module(service) {
             },
             subscribeTodoList: (context, user) => {
                 console.debug("subscribe todo list")
-                service.subscribe(user.uid, (key, value) => {
+                service.subscribe(user.uid, (event, key, value) => {
                     // console.log(key, value)
-                    context.commit('addItem', value)
+                    context.commit('addItem', {...value, id: key})
                 })
             },
             unsubscribeTodoList: (context, user) => {

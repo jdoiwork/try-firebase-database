@@ -24,4 +24,4 @@ authService.subscribe(user => store.dispatch('updateUser', user))
 
 authView.createElements({ auth: "#auth"}, store)
 databaseView.createElements({ info: "#info", form: "#form" }, store)
-todoView.createElements({ form: '#todos-new'}, store)
+todoView.createElements({ form: '#todos-new', list: '#todos-list'}, store)

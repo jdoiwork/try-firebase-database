@@ -47,11 +47,11 @@
           <button type="submit">追加</button>
         </form>
       </section>
-      <section>
+      <section id="todos-list">
         <h3>list</h3>
         <ul>
-          <li>
-            <span>todo item</span>
+          <li v-for="item in items" v-bind:key="item.id" v-bind:id="item.id">
+            <span>{{item.text}}</span>
             <button>done</button>
             <button>remove</button>
           </li>

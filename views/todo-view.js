@@ -23,9 +23,24 @@ function createForm(el, store) {
     })
 }
 
-function createElements({ form }, store){
+function createList(el, store) {
+    return new Vue({
+        el,
+        store,
+        computed: {
+            items: {
+                get () {
+                    return this.$store.state.todo.items
+                }
+            }
+        }
+    })
+}
+
+function createElements({ form, list }, store){
     return {
         form: createForm(form, store),
+        list: createList(list, store),
     }
 }
 
