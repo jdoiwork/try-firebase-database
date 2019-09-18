@@ -12,7 +12,7 @@ function createStore(services) {
     return new Vuex.Store({
         modules: {
           auth: auth_module(services.auth),
-          todo: todo_module(),
+          todo: todo_module(services.todo),
         },
         state: {
           user: null,

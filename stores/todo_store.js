@@ -16,8 +16,11 @@ function create_module(service) {
         },
         actions: {
             updateNewItemText: (context, text) => {
-                context.dispatch('updateNewItemText', text)
+                context.commit('updateNewItemText', text)
             },
+            postNewItem: (context, userId) => {
+                service.postNew(userId, context.state.newItem)
+            }
         },
     }
 }

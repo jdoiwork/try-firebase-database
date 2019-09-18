@@ -6,6 +6,8 @@ function createForm(el, store) {
         methods: {
             onSubmit () {
                 console.log("new todo submit")
+                const s = this.$store
+                s.dispatch('postNewItem', s.state.user.uid)
             }
         },
         computed: {
@@ -14,7 +16,7 @@ function createForm(el, store) {
                     return this.$store.state.todo.newItem
                 },
                 set (value) {
-                    this.$store.commit('updateNewItemText', value)
+                    this.$store.dispatch('updateNewItemText', value)
                 }
             }
         }
