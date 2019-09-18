@@ -42,8 +42,9 @@
       <h2>todos</h2>
       <section>
         <h3>new</h3>
-        <form>
-          ここに新規TODOフォーム
+        <form id="todos-new" v-on:submit.prevent="onSubmit">
+          <input type="text">
+          <button type="submit">追加</button>
         </form>
       </section>
       <section>
