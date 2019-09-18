@@ -1,5 +1,6 @@
 
 import auth_module from './auth_store.js'
+import todo_module from './todo_store.js'
 
 const emptyEditingInfo = {
     initialized: false,
@@ -10,7 +11,8 @@ const emptyEditingInfo = {
 function createStore(services) {
     return new Vuex.Store({
         modules: {
-          auth: auth_module(services.auth)
+          auth: auth_module(services.auth),
+          todo: todo_module(),
         },
         state: {
           user: null,

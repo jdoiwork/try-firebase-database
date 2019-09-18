@@ -1,18 +1,29 @@
 
-function createForm(el) {
+function createForm(el, store) {
     return new Vue({
         el,
+        store,
         methods: {
             onSubmit () {
                 console.log("new todo submit")
+            }
+        },
+        computed: {
+            newTodoItem: {
+                get () {
+                    return this.$store.state.todo.newItem
+                },
+                set (value) {
+                    this.$store.commit('updateNewItemText', value)
+                }
             }
         }
     })
 }
 
-function createElements({ form }){
+function createElements({ form }, store){
     return {
-        form: createForm(form),
+        form: createForm(form, store),
     }
 }
 
