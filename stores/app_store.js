@@ -61,10 +61,12 @@ function createStore(services) {
             context.commit('updateUser', user)
 
             if(user) {
-                context.dispatch('subscribeInfo', user)
+              context.dispatch('subscribeInfo', user)
+              context.dispatch('subscribeTodoList', user)
             }
             else {
-                context.dispatch('unsubscribeInfo', user)
+              context.dispatch('unsubscribeInfo', user)
+              context.dispatch('unsubscribeTodoList', user)
             }
           },
           commitInfo: (context) => {
