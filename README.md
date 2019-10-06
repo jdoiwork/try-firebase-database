@@ -19,7 +19,7 @@ $ firebase serve --only hosting
 ### クラウド環境で開発していて SSH Port Forwarding する場合
 ```bash
 # サーバー上ではなく、ローカルPCのターミナルでやる
-$ ssh ssh -N -L 5000:localhost:5000 ユーザー名@IPアドレス
+$ ssh -N -L 5000:localhost:5000 ユーザー名@IPアドレス
 ```
 
 こうすると自分のPCのブラウザ上で http://localhost:5000 とするとクラウド上のWebサーバーにアクセスできる
