@@ -3,13 +3,15 @@ Firebase Database の練習
 
 ## Deploy
 
+リリース時にやる。
+
 ```bash
 $ cd firebase
 $ firebase deploy
 ```
 
 ## Serve
-開発中のデバッグ用サーバーの立ち上げ方
+開発中のデバッグ用サーバーの立ち上げ方。
 
 ```bash
 $ cd firebase
